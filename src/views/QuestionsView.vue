@@ -36,7 +36,7 @@
         <ul class="space-y-4">
           <li v-for="(answer, index) in answers" :key="index" class="border-b pb-2">
             <h4 class="font-medium text-gray-800">{{ survey.questions[index].title }}</h4>
-            <p class="text-gray-600">
+            <p class="text-gray-600 break-words">
               <span v-if="Array.isArray(answer) && answer.length">
                 {{ answer.join(', ') }}
               </span>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
     <QuestionsView :survey="currentSurvey" :switchPage="switchPage" />
   </div>
 </template>

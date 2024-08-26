@@ -48,7 +48,10 @@ export default {
     const currentPageIdx = ref(0)
 
     const currentSurvey = computed(() => {
-      const startIdx = questionIndices[currentPageIdx.value]
+      const startIdx =
+        currentPageIdx.value === questionIndices.length - 1
+          ? 0
+          : questionIndices[currentPageIdx.value]
       const endIdx = questionIndices[currentPageIdx.value + 1] || questions.length
       return {
         process: currentPageIdx.value + 1,

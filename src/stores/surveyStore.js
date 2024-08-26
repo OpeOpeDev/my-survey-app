@@ -7,6 +7,7 @@ export const useSurveyStore = defineStore('survey', {
   actions: {
     setAnswer(questionId, answer) {
       this.answers[questionId] = answer
+      console.log('[STORE]: ', this.answers)
     },
     clearAnswers() {
       this.answers = []

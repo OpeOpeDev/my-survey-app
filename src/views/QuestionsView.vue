@@ -41,7 +41,7 @@ export default {
     }
 
     const initializeAnswers = () => {
-      answers.value = ''
+      answers.value = props.survey.questions.map((question) => '')
     }
 
     initializeAnswers()

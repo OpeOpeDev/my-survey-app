@@ -16,6 +16,18 @@ export default {
         title: 'What is your name?',
         type: 'text',
         meta: { placeholder: 'Enter your name' }
+      },
+      {
+        id: 'q2',
+        title: 'What is your name?',
+        type: 'text',
+        meta: { placeholder: 'Enter your name' }
+      },
+      {
+        id: 'q3',
+        title: 'What is your name?',
+        type: 'text',
+        meta: { placeholder: 'Enter your name' }
       }
     ]
     const currentSurvey = {

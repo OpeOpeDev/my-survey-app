@@ -10,36 +10,29 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    modelValue: {
-      type: String,
-      required: true
-    },
-    meta: {
-      type: Object,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    }
-  },
-  data() {
-    return {
-      selectedValue: this.modelValue
-    }
-  },
-  methods: {
-    updateValue() {
-      this.$emit('update:modelValue', this.selectedValue)
-    }
-  },
-  watch: {
-    modelValue(newValue) {
-      this.selectedValue = newValue
-    }
+<script lang="ts" setup>
+import { ref, watch } from 'vue'
+
+const props = defineProps<{
+  modelValue: string
+  meta: { options: string[] }
+  title: string
+}>()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string): void
+}>()
+
+const selectedValue = ref(props.modelValue)
+
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    selectedValue.value = newValue
   }
+)
+
+const updateValue = () => {
+  emit('update:modelValue', selectedValue.value)
 }
 </script>

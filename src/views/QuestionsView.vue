@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <h2>Questions below</h2>
-
+  <div v-if="survey.process <= survey.total">
+    <h2>{{ `Current Progress: ${survey.process} / ${survey.total}` }}</h2>
     <div>
       <component
         v-for="(question, index) in survey.questions"
@@ -9,10 +8,14 @@
         :is="getComponentName(question.type)"
         v-bind="question"
         v-model="answers[index]"
-        class="mb-4"
       />
+      <button @click="prevPage" :disabled="survey.process === 1">Prev</button>
+      <button @click="nextPage">
+        {{ survey.process === survey.total ? 'Submit' : 'Next' }}
+      </button>
     </div>
   </div>
+  <div v-else>You submitted your answers</div>
 </template>
 
 <script>
@@ -21,7 +24,8 @@ import { ref, onMounted, watch } from 'vue'
 
 export default {
   props: {
-    survey: Object
+    survey: Object,
+    switchPage: Function
   },
   components: {
     TextInput
@@ -46,9 +50,24 @@ export default {
 
     initializeAnswers()
 
+    const nextPage = () => {
+      props.switchPage('next')
+    }
+
+    const prevPage = () => {
+      props.switchPage('prev')
+    }
+
+    const retake = () => {
+      props.switchPage('begin')
+    }
+
     return {
       answers,
-      getComponentName
+      getComponentName,
+      nextPage,
+      prevPage,
+      retake
     }
   }
 }

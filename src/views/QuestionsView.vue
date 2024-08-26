@@ -43,6 +43,10 @@
 
 <script>
 import TextInput from '../components/TextInput.vue'
+import CheckboxInput from '../components/CheckboxInput.vue'
+import DateInput from '../components/DateInput.vue'
+import TextAreaInput from '../components/TextAreaInput.vue'
+import RadioInput from '../components/RadioInput.vue'
 import { useSurveyStore } from '../stores/surveyStore'
 import { ref, onMounted, watch } from 'vue'
 
@@ -52,7 +56,11 @@ export default {
     switchPage: Function
   },
   components: {
-    TextInput
+    TextInput,
+    TextAreaInput,
+    CheckboxInput,
+    DateInput,
+    RadioInput
   },
   setup(props) {
     const answers = ref([])
@@ -60,7 +68,11 @@ export default {
 
     const getComponentName = (type) =>
       ({
-        text: 'TextInput'
+        text: 'TextInput',
+        textarea: 'TextAreaInput',
+        checkbox: 'CheckboxInput',
+        date: 'DateInput',
+        radio: 'RadioInput'
       })[type] || null
 
     const updateStoreAnswers = () => {

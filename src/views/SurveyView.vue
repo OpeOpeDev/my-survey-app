@@ -18,29 +18,27 @@ export default {
         type: 'text',
         meta: { placeholder: 'Enter your name' }
       },
-      {
-        id: 'q2',
-        title: 'What is your name?',
-        type: 'text',
-        meta: { placeholder: 'Enter your name' }
-      },
+      { id: 'q2', title: 'When is your birthday?', type: 'date', meta: {} },
       {
         id: 'q3',
-        title: 'What is your name?',
-        type: 'text',
-        meta: { placeholder: 'Enter your name' }
+        title: 'What is your favorite color?',
+        type: 'radio',
+        meta: { options: ['Red', 'Green', 'Blue', 'Yellow'] }
       },
       {
         id: 'q4',
-        title: 'What is your name?',
-        type: 'text',
-        meta: { placeholder: 'Enter your name' }
+        title: 'Which hobbies do you enjoy?',
+        type: 'checkbox',
+        meta: {
+          label: 'Select your hobbies',
+          options: ['Reading', 'Traveling', 'Cooking', 'Sports']
+        }
       },
       {
         id: 'q5',
-        title: 'What is your name?',
-        type: 'text',
-        meta: { placeholder: 'Enter your name' }
+        title: 'Tell us about yourself.',
+        type: 'textarea',
+        meta: { placeholder: 'Write something about yourself...' }
       }
     ]
 

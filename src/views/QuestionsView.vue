@@ -13,20 +13,14 @@
           v-model="answers[index]"
         />
         <div class="flex justify-between mt-8">
-          <router-link
-            to="/"
-            v-if="survey.process === 1"
-            @click="retake"
-            class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-            >Home
-          </router-link>
-          <button
-            v-else
-            @click="prevPage"
+          <component
+            :is="survey.process === 1 ? 'router-link' : 'button'"
+            :to="survey.process === 1 ? '/' : null"
+            @click="survey.process === 1 ? retake() : prevPage()"
             class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Prev
-          </button>
+            {{ survey.process === 1 ? 'Home' : 'Prev' }}
+          </component>
           <button
             @click="nextPage"
             class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 transition duration-300"

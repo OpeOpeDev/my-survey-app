@@ -4,7 +4,6 @@
 
 ## Table of Contents
 
-- [Requirements](#requirements)
 - [Installation](#installation)
 - [Project Structure](#project-structure)
 - [Components](#components)
@@ -155,7 +154,7 @@ To customize the survey app:
 - Integrate a backend to store survey answers.
 - Improve the UI/UX with more advanced Tailwind CSS features.
 - Add validation for the input fields.
-- Add `Modify` button rather than `Retake` button in the review page for the user convenience.
-- Add User Authentication and Profiles to the database.
-- Add support for conditional logic where the next question displayed is based on a user's previous answers.
+- Add a 'Modify' button instead of a 'Retake' button on the review page for user convenience.
+- Add User Authentication and Profiles within the database.
+- Implement conditional logic so that the next question displayed is based on the user's previous answers.
 - Implement a feature that allows users to export survey results in formats like CSV or PDF.

@@ -13,9 +13,16 @@
           v-model="answers[index]"
         />
         <div class="flex justify-between mt-8">
+          <router-link
+            to="/"
+            v-if="survey.process === 1"
+            @click="retake"
+            class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+            >Home
+          </router-link>
           <button
+            v-else
             @click="prevPage"
-            :disabled="survey.process === 1"
             class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Prev

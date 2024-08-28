@@ -57,6 +57,7 @@
         </button>
         <router-link to="/">
           <button
+            @click="retake"
             class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded hover:bg-gray-400 transition duration-300"
           >
             Home
